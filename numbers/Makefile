@@ -1,5 +1,5 @@
-EXE = main
+EXE = run
 OBJS = numbers.o main.o
 CLEAN_RM =
 
-include ../generic.mk
+include ../_make/generic.mk

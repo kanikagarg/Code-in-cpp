@@ -1,5 +1,5 @@
-EXE = main
+EXE = run
 OBJS = ex1_stdstack.o 
 CLEAN_RM =
 
-include ../generic.mk
+include ../_make/generic.mk
