@@ -19,12 +19,23 @@ namespace knks{
      if(num < 2){
          return false;
      };
-     for(int i=2, till=sqrt(num); i<till; i++){
+     for(int i=2, till=sqrt(num); i<=till; i++){
          if (num%i==0){
              return false;
          }
      }
      return true;
+ }
+
+ std::vector<int> Numbers::findFistNPrimeNumbers(int n){
+     std::vector<int> primenumbers;
+     for(int i=2; n>0; i++){
+         if (isPrime(i)){
+             primenumbers.push_back(i);
+             n--;
+         }
+     }
+     return primenumbers;
  }
 
  double Numbers::findPermutation(int n, int r){

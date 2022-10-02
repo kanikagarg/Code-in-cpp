@@ -6,9 +6,15 @@ int main(){
 
     int num = 5;
     knks::Numbers a;
-    cout<<"Is 534 a prime number? "<<(a.isPrime(534)==true?"True":"false")<<endl;
-    cout<<"Prime factors of 534 are ";
-    a.printPrimeFactors(a.findPrimeFactors(534));
+    cout<<"Is 4 a prime number? "<<(a.isPrime(4)==true?"True":"false")<<endl;
+    cout<<"Prime factors of 4 are ";
+    a.printPrimeFactors(a.findPrimeFactors(4));
+
+    cout<<"\nGive n to find first n prime numbers";
+    int n;
+    cin>>n;
+    cout<<"\nFirst "<<n<<" Prime numbers are";
+    a.printPrimeFactors(a.findFistNPrimeNumbers(n));
 
     cout<<"\nfactors of 534  as product are ";
     a.printAllFactors(a.findAllFactors(534));
