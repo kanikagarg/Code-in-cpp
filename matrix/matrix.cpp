@@ -77,8 +77,6 @@ class Matrix{
 int main(){
     Matrix<int> *mtr= new Matrix<int>() ;
     std::vector<std::vector<int>> m;
-    
-    
     for(int j=0,k=0; j<4;j++){ 
         std::vector<int> row;
         for(int i=0; i<4;i++){ 
