@@ -10,7 +10,8 @@
  * 
  */
 
-
+#include<iostream>
+#include<string>
 #include<map>
 using namespace std;
 class Solution {
@@ -73,3 +74,17 @@ public:
         
     }
 };
+
+int main(){
+    Solution sol;
+    int t;
+    cin>>t;
+    while(--t > 0){
+        string s;
+        cin>>s;
+        cout<<"\n \'"<<s<<"\' is Pangram?"<<(sol.checkIfPangram(s)==true?"TRUE":"FALSE");
+        cout<<"\n \'"<<s<<"\' is Pangram?"<<(sol.checkIfPangram_sol2(s)==true?"TRUE":"FALSE");
+        cout<<"\n";
+    }
+    return 0;
+}
