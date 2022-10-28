@@ -21,7 +21,7 @@ vector<int>  findPrimes(int n){
     vector<int> numbers(n+1, 1);
     numbers[0]=0;
     numbers[1]=0;
-    for(int i=2; i<n; i++){
+    for(int i=2; i<=n/2; i++){
         if (numbers[i]!=0){
             if (!((i*2)>n)){
             for(int k=2; (i*k)<=n; k++){
