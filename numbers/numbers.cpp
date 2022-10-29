@@ -2,6 +2,7 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
+#include <string>
 
 namespace knks{
  int Numbers::factorial(int num){
@@ -121,5 +122,31 @@ void Numbers::printPrimeFactors(std::vector<int> factors){
             std::cout<<" , ";
         }
     }
+ };
+
+ std::string Numbers::findMachineNumber(int num){
+    std::string binary_representation="";
+    std::vector<int> bits;
+    if (num<0){
+        // number is negative
+        return binary_representation;
+    }else{
+        // number is positive
+        // non decimal number
+        while( num!=0){
+            int rem = num %2;
+            binary_representation.push_back(char(rem));
+            num = floor(num/2);
+        }
+        while(binary_representation.size()>0){
+            bits.push_back(int(binary_representation.back()));
+            binary_representation.pop_back();
+        }
+
+        for(int i=0; i<bits.size(); i++){
+            binary_representation.push_back('0'+bits[i]);
+        }
+        return binary_representation;
+        }
  };
 }

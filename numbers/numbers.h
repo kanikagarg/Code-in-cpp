@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <string>
+
 
 namespace knks{
     class Numbers{
@@ -13,5 +15,12 @@ namespace knks{
             std::vector<int> findAllFactors(int num);
             void printAllFactors(std::vector<int> num);
             void printPrimeFactors(std::vector<int> num);
+            /**
+             * @brief The binary representation of a number in a computer is called its machine number. 
+             * 
+             * @param num 
+             * @return std::string 
+             */
+            std::string findMachineNumber(int num);
     };
 }
