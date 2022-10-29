@@ -26,5 +26,6 @@ int main(){
     cout<<"5! is  "<<a.factorial(num)<<endl;
     cout<<"5P3 is  "<<a.findPermutation(5,3)<<endl;
     cout<<"5C3 is  "<<a.findCombination(5,3)<<endl;
+    cout<<"Machine number for 1234 base 10 is "<<a.findMachineNumber(1234)<<endl;
     return 0;
 }
