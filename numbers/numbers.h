@@ -22,5 +22,17 @@ namespace knks{
              * @return std::string 
              */
             std::string findMachineNumber(int num);
+            /**
+             * @brief The original code is the sign bit of the machine number plus the absolute value of the truth value of the machine number
+             * 
+             */
+            /**
+             * The inverse code is obtained from the original code. The inverse code of non-negative numbers is the same as the original code. The inverse of negative numbers is to flip every bit of the original code except the sign bit. Flip means changing 00 to 11 or changing 11 to 00
+            */
+           /**
+            * Complement code
+
+The complement code is obtained from the inverse code. The complement code of non-negative numbers is the same as the original code and the inverse code. The complement of negative numbers is obtained by adding 1 to the inverse code.
+           */
     };
 }
