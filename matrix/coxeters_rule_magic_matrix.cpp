@@ -131,7 +131,7 @@ class Solution{
 
 int main(){
 
-    cout<<"\aPress 0 for printing the resultant magic matrix after creation \nor press any other number for printing all the steps to create the magic matrix: ";
+    cout<<"\aPress 0 for printing the resultant magic matrix after creation \nor press 1 for printing all the steps to create the magic matrix: ";
     bool printsteps;
     cin>>printsteps;
     Solution sol;
@@ -150,9 +150,10 @@ int main(){
     
     int res = sol.magic_matrix( n, matrix, printsteps);
     if(res == true)
+    {
         if(printsteps==false)
             sol.print_matrix(n,matrix);
-    else cout<<"\nCannot create a magic matrix with even n; "<<n<<" is even.";
+    }else cout<<"\nCannot create a magic matrix with even n; "<<n<<" is even.";
     
 
     // to deallocate the memory
