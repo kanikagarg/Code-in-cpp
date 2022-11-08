@@ -81,8 +81,9 @@ class Solution{
                 if(col>=1) col--;
                 else col=n-1;
 
-                if(matrix[row][col]>=1){
-                    row = (row+1%n);
+                if(matrix[row][col]>0){
+                    row =  ((row+2)%n);
+                    col = ((col+1)%n);
                 }
 
                 matrix[row][col]=i;
@@ -97,7 +98,14 @@ class Solution{
         }
         
         
-
+        /**
+         * @brief Check whether the given matrix is a magic matrix or not
+         * 
+         * @param n 
+         * @param matrix 
+         * @return true 
+         * @return false 
+         */
         bool is_magic_matrix(int n, int ** matrix){
             int sum=0, d1_sum=0, d2_sum=0;
             bool is_magic = true;
@@ -193,7 +201,7 @@ int main(){
             sol.print_matrix(n,matrix);
 
         cout<<"\nChecking whether the matrix is actually a magic matrix or not...\n\n";
-        cout<<(sol.is_magic_matrix(n,matrix)==true?"Yes it is a magic matrix": " OOPS! the resultant matrix is not actually a magic matrix. Something went wrong!");
+        cout<<(sol.is_magic_matrix(n,matrix)==true?"\n\nYay! Yes it is a magic matrix": "\n\nOOPS! the resultant matrix is not actually a magic matrix. Something went wrong!");
 
     }else cout<<"\nCannot create a magic matrix with even n; "<<n<<" is even.";
     
