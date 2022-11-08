@@ -95,6 +95,44 @@ class Solution{
             }
             return true;
         }
+        
+        
+
+        bool is_magic_matrix(int n, int ** matrix){
+            int sum=0, d1_sum=0, d2_sum=0;
+            bool is_magic = true;
+            // sum set to first row's elements sum
+            for(int j=0;j<n;j++)
+                sum+=matrix[0][j];
+
+            // checking all other rows and column sum
+            for(int i=0;i<n;i++)
+            {   int row_sum=0, col_sum = 0;
+                for(int j=0; j<n; j++){
+                    row_sum+=matrix[i][j];
+                    col_sum += matrix[j][i];
+                }
+                cout<<"\nRow sum for "<<i+1<<" row "<<row_sum;
+                cout<<"\nCol sum for "<<i+1<<" col "<<col_sum;
+                if(row_sum!=sum or row_sum!=col_sum or row_sum!=col_sum){
+                    is_magic = false;
+                }
+                d1_sum += matrix[i][i];
+                d2_sum += matrix[i][n-1-i];
+            }
+             cout<<"\nD1 sum: "<<d1_sum;
+                cout<<"\nD2 sum : "<<d2_sum;
+            if(d1_sum!=d2_sum or d1_sum!=sum or d2_sum!=sum){
+                cout<<"D1 sum: "<<d1_sum<<" D2 sum:"<<d2_sum;
+                is_magic= false;
+            }
+
+            return is_magic;
+        }
+
+
+
+
         /**
          * @brief It prints the matrix on console
          * 
@@ -153,6 +191,10 @@ int main(){
     {
         if(printsteps==false)
             sol.print_matrix(n,matrix);
+
+        cout<<"\nChecking whether the matrix is actually a magic matrix or not...\n\n";
+        cout<<(sol.is_magic_matrix(n,matrix)==true?"Yes it is a magic matrix": " OOPS! the resultant matrix is not actually a magic matrix. Something went wrong!");
+
     }else cout<<"\nCannot create a magic matrix with even n; "<<n<<" is even.";
     
 
