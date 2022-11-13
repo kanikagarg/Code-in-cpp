@@ -15,6 +15,98 @@ class Matrix{
             std::cout << std::endl;
         }
 
+        /**
+         * @brief Function to return list of integers that form the boundary
+         * traversal of the matrix of dimensions n x m in a clockwise manner.
+         * 
+         * @param matrix 
+         * @param n 
+         * @param m 
+         * @return vector<int> 
+         */
+        std::vector<int> boundaryTraversal(std::vector<std::vector<int> > matrix, int n, int m) 
+        {   int size = n>1 and m>1? 2*n + 2*m -4 : (n==1? m:n);
+            std::vector<int> boundaryPoints;
+            int rs = 0, cs = 0;
+            for(int i=0; i<m and boundaryPoints.size()<size; i++)
+                boundaryPoints.push_back(matrix[0][i]);
+            for(int i=1; i<n and boundaryPoints.size()<size; i++)
+                boundaryPoints.push_back(matrix[i][m-1]);
+            for(int i=m-2; i>0 and boundaryPoints.size()<size; i--)
+                boundaryPoints.push_back(matrix[n-1][i]);
+            for(int i=n-1; i>0 and boundaryPoints.size()<size; i-- )
+                boundaryPoints.push_back(matrix[i][0]);
+            return boundaryPoints;
+        }
+
+        /**
+         * @brief function to rotate the matrix of dimensions n*n to 90 deg anticlockwise
+         * 
+         * @param matrix 
+         */
+        void rotate90DegreeAntiClockwise(std::vector<std::vector<int> >& matrix)
+        {   std::vector<vector<int>> mat;
+            int n= matrix.size();
+            for(int j=n-1;j>=0;j--){
+                std::vector<int> row;
+            for(int i=0; i <n; i++)
+            {  row.push_back(matrix[i][j]);
+            }
+                mat.push_back(row);
+            }
+            matrix  = mat;
+        }
+
+
+        /**
+         * @brief Function to return a list of integers denoting spiral traversal of matrix.
+         * 
+         * @param m 
+         * @param r 
+         * @param c 
+         * @return std::vector<int> 
+         */
+        std::vector<int> spirallyTraverse(std::vector<std::vector<int> > m, int r, int c) {
+            std::vector<int> spr;
+            int arrsize = r*c;
+            int row=0, col=0, colstart=0, colend=c, rowend=r;
+            
+            auto check = [&]()->bool{
+                if(spr.size()==arrsize)
+                    return true;
+                else 
+                    return false;
+            };
+            while(!check()){
+                for(int i=col; i<colend; i++)
+                    spr.push_back(m[row][i]);
+                row++;
+                
+                if(check())
+                    break;
+                for(int i=row; i<rowend; i++)
+                    spr.push_back(m[i][colend-1]);
+                colend--;
+                if(check())
+                    break;
+                for(int i=colend-1; i>=col; i--)
+                    spr.push_back(m[rowend-1][i]);
+                rowend--;
+                if(check())
+                    break;
+                
+                for(int i=rowend-1; i>=row; i--)
+                    spr.push_back(m[i][col]);
+                col++;
+            }
+            return spr; 
+        };
+
+        /**
+         * @brief Function to print a list of integers denoting spiral traversal of matrix.
+         *   
+         * @param m 
+         */
         void spiralordermatrix(std::vector<std::vector<int>> m){
             std::vector<int> spr;
             int arrsize = m.size()*m[0].size();
@@ -73,6 +165,7 @@ class Matrix{
             }
             std::cout << std::endl;
         }
+
         std::vector<std::vector<int>> rotateMatrixClockwise( std::vector<std::vector<int>> Mat) {
             int sz= Mat.size()*Mat[0].size();
             int k=0;
