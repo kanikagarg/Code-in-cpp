@@ -210,6 +210,65 @@ class Matrix{
             std::cout << std::endl;
         }
 
+        /**
+         * @brief function to print a matrix M (of n*n size ) elements in a diagonal pattern
+         * 
+         * @param mat 
+         * @return vector<int> 
+         */
+        /*Ex:  
+            i/p: 1 2 3
+                 4 5 6 
+                 7 8 9
+            o/p:  1 2 4 7 5 3 6 8 9
+        */
+        std::vector<int> matrixDiagonally(std::vector<std::vector<int>>&mat)
+        {
+            std::vector<int> res;
+            int row=0, col=0, rowend=mat.size(), colend=mat[0].size();
+            bool up = true;
+            for(int c=0, i=row, j=col; c<rowend*colend; c++){
+                res.push_back(mat[i][j]);
+                if(i==row and j==colend-1)
+                    row++;
+                
+                if(i==rowend-1 and j==col)
+                    col++;
+                
+                if(up){
+                    j++;
+                    i--;
+                }else{
+                    j--;
+                    i++;
+                }
+
+                if(i<row){
+                    i++;
+                    up =false;
+                }
+                
+                if(j<col){
+                    j++;
+                    up = true;
+                }
+                
+                if(i==rowend){
+                    i--;
+                    j++;
+                    up = true;
+                } 
+                
+                if(j==colend){
+                    j--;
+                    i++;
+                    up = false;
+                } 
+            }
+            return res;    
+        }
+
+
         std::vector<std::vector<int>> rotateMatrixClockwise( std::vector<std::vector<int>> Mat) {
             int sz= Mat.size()*Mat[0].size();
             int k=0;
