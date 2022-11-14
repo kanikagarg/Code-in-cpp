@@ -102,6 +102,50 @@ class Matrix{
             return spr; 
         };
 
+
+        /**
+         * @brief The function will return the kth element obtained while traversing the matrix spirally.
+         * function takes four arguments.
+         * First argument is the matrix A.
+         * n and m denoting the size of the matrix A.
+         * The forth argument is an integer  k denoting the kth element.
+         * 
+         * @param A
+         * @param n
+         * @param m
+         * @param k
+         * @return int 
+         */
+        int findK(int A[MAX][MAX], int n, int m, int k){
+            
+            int row=0, col=0, rowend = n, colend = m, count =0;
+            while(count!=k and k>0 and k<=n*m){
+            for(int i=col; i<colend ; i++)
+            { if(++count == k){
+                return A[row][i];}
+            };
+            row++;
+            for(int i=row; i<rowend; i++){
+                if(++count==k){
+                    return A[i][colend-1];
+                }
+            }
+            colend--;
+            for(int i=colend-1; i>=col; i--){
+                if(++count == k){
+                    return A[rowend-1][i];
+                }
+            }
+            rowend--;
+            for(int i=rowend-1; i>=row; i--){
+                if(++count==k){
+                    return A[i][col];
+                }
+            }
+            col++;
+            }
+        };
+
         /**
          * @brief Function to print a list of integers denoting spiral traversal of matrix.
          *   
