@@ -9,6 +9,32 @@ struct ListNode {
 };
 
 class LL{
+    private:
+    /**
+     * @brief removing nodes with value of val other than node n
+     * 
+     * @param n 
+     * @param val 
+     */
+    void remove(ListNode *n, int val){
+        ListNode * prev=n, *cur=n->next;
+        while(cur!=nullptr){
+            if(cur->val==val){
+                //duplicate found
+                //storing referemce to  current node to be deleted
+                ListNode *nodeToDelete  = cur;
+                //updating the prev and current node
+                prev->next=cur->next;
+                cur=cur->next;
+                // deleting the removed node
+                delete nodeToDelete;
+            }else{
+                prev=cur;
+                cur=cur->next;
+            }
+        }
+    }
+    
       
     public:
         ListNode *head; 
@@ -69,6 +95,19 @@ class LL{
         std::cout<<"\nadding val to list"<<node->val;
         }
         // printLL();
+        }
+
+        /**
+         * @brief removes nodes with duplicate data value
+         * 
+         * @param node 
+         */
+        void removeDuplicate(ListNode *node){
+            if(node!=nullptr){
+                int val = node->val;
+                remove(node, val);
+                removeDuplicate(node->next);
+            }
         }
 
 
